@@ -11,3 +11,60 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="js/creative.js"></script>
+
+<script chartset='utf-8'>
+  var autogenerate = function(){
+    var objS = document.getElementById("mobile");
+    var selectedOption = objS.options[objS.selectedIndex];
+    var grade = selectedOption.getAttribute('grade');
+    var url = selectedOption.value;
+    if(grade!='-1'){
+        if(grade=='0'){
+            var fundCode = prompt("请输入基金代码:");
+            if(fundCode!=null){
+                debugger;
+                url = url+'&fundcode='+fundCode;
+            }else{
+                $('#newUrl').val('');
+                return false;
+            }
+        }
+        var generateUrl=encodeURIComponent(url);
+        var newUrl="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx01272e8adf9aacd1&redirect_uri="+generateUrl+"&response_type=code&scope=snsapi_userinfo";
+        $('#newUrl').val(newUrl);
+        console.log(selectedOption.value);
+    }
+};
+
+
+/**
+ * 生成链接
+ */
+var generateLink=function(){
+    // var url="http://m.cifm.com/weisvr/app?a=wx01272e8adf9aacd1&go=https://m.cifm.com/appServer/integrate/wxentry?wxUsername=OPENID&pageId=fundDetails&fundcode=000457";
+    var fundCode=$('#fundCode').val();
+    var fundName=$('#fundName').val();
+    // if(fundCode){
+    //     url+='&fundcode='+fundCode;
+    // }
+    // console.log(url);
+    var generateUrl=encodeURIComponent("http://m.cifm.com/weisvr/app?a=wx01272e8adf9aacd1&go=https://m.cifm.com/appServer/integrate/wxentry?wxUsername=OPENID&pageId=fundDetails&fundcode="+fundCode+"");
+    var newUrl="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx01272e8adf9aacd1&redirect_uri="+generateUrl+"&response_type=code&scope=snsapi_userinfo";
+    $('#newUrl').val(newUrl);
+};
+
+function copyUrl2(type)
+{
+    if(document.getElementById("newUrl").value){
+        var Url2=document.getElementById("newUrl");
+        Url2.select(); // 选择对象
+        document.execCommand("Copy"); // 执行浏览器复制命令
+        alert("复制成功，可以粘贴了");
+        if(type){
+            window.open('http://dwz.cn/');
+        }
+    }else{
+        alert("冒得链接，请先点击生成链接或者选择模块");
+    }
+}
+</script>
