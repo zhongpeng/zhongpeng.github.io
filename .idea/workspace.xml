@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a0a8481-9758-45b0-8255-275475a069b8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1a0a8481-9758-45b0-8255-275475a069b8" name="Default" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/scripts.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/scripts.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +45,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1468412417680</updated>
-      <workItem from="1609836614087" duration="355000" />
+      <workItem from="1609836614087" duration="1224000" />
     </task>
+    <task id="LOCAL-00001" summary="Update">
+      <created>1609836983885</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609836983885</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="561" y="114" key="CommitChangelistDialog2" timestamp="1609836983709">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="561" y="114" key="CommitChangelistDialog2/0.0.1920.1080/1920.-840.1080.1920@0.0.1920.1080" timestamp="1609836983709" />
     <state x="667" y="295" width="586" height="490" key="find.popup" timestamp="1609836956487">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
