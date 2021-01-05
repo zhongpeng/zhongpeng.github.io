@@ -8,5 +8,145 @@
                     Let life be beautiful like summer flowers and death like autumn leaves
                 </p>
             </div>
-    </div>
+        </div>
+
+
+        <p>totality：<label style="color: red" id="fundNumber"></label></p>
+        <div><h1>registerAddr：</h1>
+            <div id="registerAddrList"></div>
+        </div>
+        <div class="tableBox" style="display:block;margin-top: 20px ">
+            <label id="registerFundsLength">总数：</label>
+            <table style="width:100%; text-align:center" celllpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th style="width:10%">num</th>
+                    <th style="width:30%">company</th>
+                    <th style="width:30%">registerAddr</th>
+                    <th style="width:30%">officeAddr</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+        <div><h1>registerAddr：</h1>
+            <div id="officeAddrList"></div>
+        </div>
+        <div class="tableBox" style="display:block;margin-top: 20px ">
+            <label id="officeFundsLength">总数：</label>
+            <table style="width:100%; text-align:center" celllpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th style="width:10%">num</th>
+                    <th style="width:30%">company</th>
+                    <th style="width:30%">registerAddr</th>
+                    <th style="width:30%">officeAddr</th>
+                </tr>
+                </thead>
+                <tbody id="tbody1">
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript">
+            let registerAddrList = {};
+            let officeAddrList = {};
+
+            /**
+             * 使用循环的方式判断一个元素是否存在于一个数组中
+             * @param {Object} arr 数组
+             * @param {Object} value 元素值
+             */
+            function isInArray(arr, value) {
+                for (var i = 0; i < arr.length; i++) {
+                    if (value === arr[i]) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function changeShowTable(e) {
+                let addr = $($(e)).attr("addr");
+                let showType = $($(e)).attr("showType");
+                let html = '';
+                if (showType === "0") {
+                    $('.checked').removeClass('checked')
+                    $($(e)).addClass('checked');
+                    registerAddrList[addr].forEach((data, index) => {
+                        html += "<tr>";
+                        html += "<td>" + (index + 1) + "</td>";
+                        html += "<td>" + data.houseName + "</td>";
+                        html += "<td>" + data.registerAddr + "</td>";
+                        html += "<td>" + data.officeAddr + "</td>";
+                        html += "</tr>";
+                    });
+                    $("#tbody").html(html);
+                    $("#registerFundsLength").html("总数：" + registerAddrList[addr].length);
+                } else {
+                    $('.checked1').removeClass('checked1');
+                    $($(e)).addClass('checked1');
+                    officeAddrList[addr].forEach((data, index) => {
+                        html += "<tr>";
+                        html += "<td>" + (index + 1) + "</td>";
+                        html += "<td>" + data.houseName + "</td>";
+                        html += "<td>" + data.registerAddr + "</td>";
+                        html += "<td>" + data.officeAddr + "</td>";
+                        html += "</tr>";
+                    });
+                    $("#tbody1").html(html);
+                    $("#officeFundsLength").html("总数：" + officeAddrList[addr].length);
+                }
+            }
+
+            let showFunds = function (data) {
+                let registerAddrArray = [];
+                let officeAddrArray = [];
+                let fundNumber = data.length;
+                data.forEach((fund, index) => {
+                    if (!isInArray(registerAddrArray, fund.registerAddr)) {
+                        registerAddrArray.push(fund.registerAddr)
+                    }
+                    if (!isInArray(officeAddrArray, fund.officeAddr)) {
+                        officeAddrArray.push(fund.officeAddr)
+                    }
+                    if (registerAddrList[fund.registerAddr]) {
+                        registerAddrList[fund.registerAddr].push(fund);
+                    } else {
+                        registerAddrList[fund.registerAddr] = [];
+                        registerAddrList[fund.registerAddr].push(fund);
+                    }
+                    if (officeAddrList[fund.officeAddr]) {
+                        officeAddrList[fund.officeAddr].push(fund);
+                    } else {
+                        officeAddrList[fund.officeAddr] = [];
+                        officeAddrList[fund.officeAddr].push(fund);
+                    }
+                })
+                let registerLabel = "";
+                let officeLabel = "";
+                registerAddrArray.forEach((register, index) => {
+                    if (index === 0) {
+                        registerLabel += '<label class="checked m5" addr="' + register + '" showType="0" onclick="changeShowTable(this)">' + register + '</label>';
+                    } else {
+                        registerLabel += '<label class="m5"  addr="' + register + '" showType="0"  onclick="changeShowTable(this)">' + register + '</label>';
+                    }
+                })
+                officeAddrArray.forEach((office, index) => {
+                    if (index === 0) {
+                        officeLabel += '<label class="checked1 m5" addr="' + office + '" showType="1" onclick="changeShowTable(this)">' + office + '</label>';
+                    } else {
+                        officeLabel += '<label class="m5"  addr="' + office + '" showType="1"  onclick="changeShowTable(this)">' + office + '</label>';
+                    }
+                })
+                $("#fundNumber").html(fundNumber);
+                $("#registerAddrList").html(registerLabel);
+                $("#officeAddrList").html(officeLabel);
+                $('.checked').click();
+                $('.checked1').click();
+            }
+            $.get('https://www.amac.org.cn/portal/front/mutualFund/findMutualFundHousePage?pageNo=1&pageSize=1000', function (data) {
+                showFunds(data.data.data.dataList);
+            })
+        </script>
 </section>
