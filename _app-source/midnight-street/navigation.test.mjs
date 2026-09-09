@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import{ROOMS,CATALOG,clampPosition,interactionAt,stepToward}from'./navigation.mjs';
+test('all three doors can be reached and entered without crossing the facade',()=>{for(const r of ROOMS){const p=clampPosition(r.x,.8);assert.equal(interactionAt(p.x,p.z).room,r.id);assert.equal(interactionAt(r.x,5),null)}});
+test('room counter opens menu and entrance returns to street',()=>{assert.equal(interactionAt(0,-.8,'teahouse').type,'menu');assert.equal(interactionAt(0,3.7,'ledger').type,'exit');assert.equal(interactionAt(3,1,'ledger'),null)});
+test('walking clamps at walls and never overshoots tap target',()=>{assert.deepEqual(clampPosition(100,-100),{x:10.4,z:.7});assert.deepEqual(clampPosition(-100,100,true),{x:-3.7,z:3.8});const p=stepToward({x:0,z:3},{x:1,z:3},50);assert.equal(p.x,1);assert.equal(p.z,3)});
+test('menu preserves existing deployed routes',()=>{assert.deepEqual(CATALOG.map(x=>x.href),['/moment-forever/','/money-compass/']);assert.equal(new Set(ROOMS.map(x=>x.id)).size,3)});

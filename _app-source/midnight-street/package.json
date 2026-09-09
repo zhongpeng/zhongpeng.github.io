@@ -1,0 +1,13 @@
+{
+  "name": "midnight-street",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test navigation.test.mjs runtime.test.mjs"
+  },
+  "dependencies": {
+    "three": "0.180.0",
+    "esbuild": "0.27.3"
+  }
+}

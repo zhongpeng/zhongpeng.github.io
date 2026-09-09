@@ -1,0 +1,2 @@
+import{build}from'esbuild';import{readFile,writeFile,mkdir,copyFile}from'node:fs/promises';
+const dir='../../street-assets';await mkdir(dir,{recursive:true});const bundle=await build({write:false,entryPoints:['main.js'],bundle:true,minify:true,format:'iife',target:'es2020',outfile:dir+'/street-v1.js'});await writeFile(dir+'/street-v1.js',bundle.outputFiles[0].text.replace(/[ \t]+$/gm,''));await copyFile('style.css',dir+'/street-v1.css');await writeFile('../../index.html',await readFile('page.html','utf8'));console.log('Midnight street built');
