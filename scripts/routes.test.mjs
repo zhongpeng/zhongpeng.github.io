@@ -44,7 +44,8 @@ test('rebuilding the street keeps the portal homepage intact and publishes the s
 test('Heye preview ships only local assets and clearly separates itself from the mini program', async () => {
   const html = await read('heye/index.html');
   assert.match(html, /data-hosting="static"/);
-  assert.match(html, /与微信小程序独立/);
+  assert.match(html, /本机网页版/);
+  assert.match(html, /连接微信云账本/);
   for (const [, path] of html.matchAll(/(?:href|src)="(\.\/[^"?#]+)"/g)) {
     assert.ok((await stat(resolve(root, 'heye', path))).isFile(), `missing Heye resource: ${path}`);
   }
