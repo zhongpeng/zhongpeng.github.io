@@ -1,0 +1,13 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { RunState } from '../src/core/GameState.ts';
+import { makeChart } from '../src/core/Constants.ts';
+const run=()=>{const r=new RunState();r.reset();r.phase='playing';return r;};
+test('a complete perfect run judges every note once and rewards streaks',()=>{const r=run();for(const n of r.notes)assert.equal(r.tap(n.time)?.grade,'PERFECT');assert.equal(r.combo,48);assert.equal(r.maxCombo,48);assert.equal(r.perfect,48);assert.equal(r.accuracy,100);assert.ok(r.score>48*100);assert.equal(r.judged,48);});
+test('the timing windows separate perfect, good, and ok',()=>{for(const [delta,grade] of [[.04,'PERFECT'],[.10,'GOOD'],[.17,'OK']] as const){const r=run();assert.equal(r.tap(delta)?.grade,grade);}});
+test('late missed notes cannot be collected; a miss breaks the streak',()=>{const r=run();r.tap(0);r.advance(.625+.2);assert.equal(r.combo,0);assert.equal(r.misses,1);assert.equal(r.tap(1.25)?.grade,'PERFECT');assert.equal(r.combo,1);assert.equal(r.judged,3);});
+test('rapid double input cannot score one note twice',()=>{const r=run();r.tap(0);assert.equal(r.tap(.02),null);assert.equal(r.score,100);assert.equal(r.extras,0);});
+test('an offbeat extra tap breaks combo and reduces accuracy',()=>{const r=run();r.tap(0);assert.equal(r.tap(.3)?.grade,'EARLY');assert.equal(r.combo,0);assert.equal(r.accuracy,50);});
+test('pause ignores hits, and restarting clears every transient state',()=>{const r=run();r.tap(0);r.phase='paused';assert.equal(r.tap(.625),null);r.reset('normal');assert.equal(r.score,0);assert.equal(r.phase,'ready');assert.equal(r.lastTap,-Infinity);assert.equal(r.notes.filter(n=>n.judged).length,0);assert.equal(r.notes.length,56);});
+test('a no-input run resolves all misses without duplicates',()=>{const r=run();r.advance(r.duration+1);r.advance(r.duration+2);assert.equal(r.misses,48);assert.equal(r.judged,48);assert.equal(r.accuracy,0);});
+test('both charts are ordered and spaced wider than the debounce window',()=>{for(const mode of ['easy','normal'] as const){const c=makeChart(mode);assert.equal(c[0].time,0);for(let i=1;i<c.length;i++)assert.ok(c[i].time-c[i-1].time>=.25);}});
