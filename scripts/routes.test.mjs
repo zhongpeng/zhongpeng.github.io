@@ -20,8 +20,8 @@ test('homepage directly exposes all independent experiences without loading a ga
 
 test('homepage covers and stylesheet exist, and the published beat game uses directory-relative assets', async () => {
   const home = await read('index.html');
-  for (const [, path] of home.matchAll(/(?:href|src)="(\.\/portal-assets\/[^"?#]+)"/g)) {
-    assert.ok((await stat(resolve(root, path))).size > 0, `missing homepage resource: ${path}`);
+  for (const [, path] of home.matchAll(/(?:href|src)="(\.\/portal-assets\/[^"]+)"/g)) {
+    assert.ok((await stat(resolve(root, path.split(/[?#]/)[0]))).size > 0, `missing homepage resource: ${path}`);
   }
   const beat = await read('beat-pocket/index.html');
   const assets = [...beat.matchAll(/(?:href|src)="(\.\/assets\/[^"?#]+)"/g)];
