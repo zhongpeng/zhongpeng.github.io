@@ -1,0 +1,64 @@
+/* Account acceptance prototype. All styling is scoped to its modal body. */
+.account-preview { color: var(--ink, #0c2454); }
+.account-preview-notice { display: grid; gap: 5px; padding: 13px 15px; border: 1px solid #dbe6f6; border-radius: 9px; background: #f0f5fc; color: #47689a; font-size: 12px; line-height: 1.75; }
+.account-preview-notice strong { font-weight: 550; }
+.account-preview-notice span { color: #5f7ba4; font-size: 11px; }
+.account-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; margin: 21px 0 25px; padding: 4px; border-radius: 10px; background: #ebf0f8; }
+.account-tabs button { min-height: 39px; padding: 8px 10px; border: 0; border-radius: 7px; background: transparent; color: #637fa9; font-size: 13px; }
+.account-tabs button[aria-selected="true"] { background: white; color: var(--primary, #002fa7); font-weight: 600; box-shadow: 0 2px 5px #3f63980d; }
+.account-form-heading { margin-bottom: 24px; text-align: center; }
+.account-symbol { display: grid; place-items: center; width: 49px; height: 49px; margin: 0 auto 13px; border-radius: 16px 16px 16px 5px; background: #e1ebf9; color: #4770ae; font-size: 24px; font-weight: 600; }
+.account-form-heading h3 { font-size: 20px; font-weight: 550; color: #465e81; }
+.account-form-heading p { margin-top: 8px; color: #6e88ae; font-size: 12px; }
+.account-preview .form-field { margin-bottom: 15px; }
+.account-preview input:disabled { opacity: 1; background: #f3f5f8; color: #7389ac; cursor: not-allowed; }
+.account-preview input:disabled::placeholder { color: #7e94b4; }
+.account-field-note { margin: -8px 0 17px; color: #6e88ae; font-size: 11px; line-height: 1.7; }
+.account-form-tools { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 9px; margin: -4px 0 19px; font-size: 11px; color: #7990b3; }
+.account-text-button { padding: 3px 0; background: transparent; border: 0; color: var(--primary, #002fa7); font-size: 11px; text-align: left; }
+.account-text-button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.account-main-button, .account-wechat-button { width: 100%; min-height: 44px; }
+.account-divider { display: flex; align-items: center; gap: 13px; margin: 23px 0 17px; color: #8499b9; font-size: 11px; }
+.account-divider::before, .account-divider::after { content: ""; flex: 1; height: 1px; background: #e6ebf3; }
+.account-wechat-button { color: #478d70; background: #f0f8f3; border-color: #dfeee4; }
+.account-wechat-button:hover { background: #e6f3eb; border-color: #c7e2d1; }
+.account-bottom-note { margin-top: 15px; color: #7a90b2; font-size: 11px; line-height: 1.8; text-align: center; }
+.account-profile { display: flex; align-items: center; gap: 16px; margin: 7px 0 23px; }
+.account-profile-avatar { display: grid; place-items: center; width: 66px; height: 66px; flex: 0 0 66px; border-radius: 22px; background: #e4ecf9; color: #4d77b5; font-size: 28px; }
+.account-profile > div:last-child { min-width: 0; }
+.account-profile h3 { margin-top: 5px; color: #445b7e; font-size: 22px; overflow-wrap: anywhere; }
+.account-profile p { margin-top: 5px; color: #738cb2; font-size: 11px; }
+.account-status { display: inline-block; flex-shrink: 0; padding: 3px 8px; border-radius: 5px; background: #ecf2fa; color: #5c7eb0; font-size: 10px; line-height: 1.5; }
+.account-center-intro { color: #607ba3; font-size: 12px; line-height: 1.9; }
+.account-capabilities { margin: 19px 0 23px; border-top: 1px solid #e7edf5; }
+.account-capabilities > div { display: flex; align-items: center; gap: 12px; padding: 17px 0; border-bottom: 1px solid #e7edf5; }
+.account-feature-icon { display: grid; place-items: center; width: 36px; height: 36px; flex: 0 0 36px; border-radius: 10px; background: #eff4fa; color: #6488bf; font-size: 20px; }
+.account-capabilities > div > div { flex: 1; min-width: 0; }
+.account-preview h4 { margin: 0; color: #536c91; font-size: 13px; font-weight: 550; line-height: 1.5; }
+.account-capabilities p { margin-top: 5px; color: #748db2; font-size: 11px; line-height: 1.65; }
+.account-methods { padding: 17px 18px; border: 1px solid #e3ebf6; border-radius: 10px; background: #fbfcfe; }
+.account-section-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }
+.account-method-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 0; border-bottom: 1px solid #e6ecf5; color: #57749f; font-size: 12px; }
+.account-method-status { color: #718bb3; font-size: 10px; text-align: right; }
+.account-methods > p { margin-top: 12px; color: #6e8ab3; font-size: 11px; line-height: 1.8; }
+.account-local-note { margin: 18px 0; color: #6c86ac; font-size: 11px; line-height: 1.9; }
+.account-center-actions { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 3px; }
+.account-detail h3 { margin: 8px 0 12px; color: #486289; font-size: 20px; font-weight: 550; }
+.account-detail-note { color: #617ca4; font-size: 12px; line-height: 1.9; }
+.account-steps { list-style: none; counter-reset: account-step; padding: 0; margin: 24px 0; }
+.account-steps li { position: relative; counter-increment: account-step; min-height: 64px; padding: 0 0 22px 44px; }
+.account-steps li::before { position: absolute; top: 0; left: 0; content: counter(account-step); display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; color: #4a70aa; background: #e3ebf8; font-size: 12px; }
+.account-steps li:not(:last-child)::after { content: ""; position: absolute; top: 34px; bottom: 7px; left: 13px; width: 1px; background: #dbe4f1; }
+.account-steps li:last-child { padding-bottom: 0; }
+.account-steps p { margin-top: 6px; color: #708ab1; font-size: 12px; line-height: 1.8; }
+@media (max-width: 600px) {
+  .account-preview-notice { padding: 11px 12px; font-size: 11px; }
+  .account-tabs { margin: 17px 0 22px; }
+  .account-form-heading h3, .account-detail h3 { font-size: 18px; }
+  .account-profile-avatar { width: 56px; height: 56px; flex-basis: 56px; border-radius: 18px; }
+  .account-profile h3 { font-size: 20px; }
+  .account-capabilities > div { gap: 10px; }
+  .account-capabilities > div > .account-status { padding: 3px 5px; font-size: 9px; }
+  .account-methods { padding: 14px; }
+  .account-center-actions > .button { flex: 1; }
+}

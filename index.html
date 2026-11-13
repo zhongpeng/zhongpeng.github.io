@@ -2,55 +2,47 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f2f5f8">
-  <meta name="description" content="Salman 的个人作品小站。玩一局潮汐之间，逛逛木心美术馆与第八巷，或跟着拍点找到节奏。">
-  <title>Salman 的作品小站</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23202f42'/%3E%3Cpath d='M18 18h11v11H18zm17 0h11v11H35zM18 35h11v11H18zm17 0h11v11H35z' fill='%23e1eaf5'/%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#192b41">
+  <meta name="description" content="Salman 的小小游乐场。潮汐之间、木心美术馆、第八巷、拍点与禾页账本，选一个喜欢的，进去看看。">
+  <title>Salman · 小小游乐场</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='20' fill='%23192b41'/%3E%3Cpath d='M43 19C23 6 11 30 31 32S44 58 20 44' fill='none' stroke='%23e9ac91' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./portal-assets/home.css">
+  <script src="./portal-assets/home.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#works">跳到作品</a>
+  <a class="skip-link" href="#works">跳到作品目录</a>
   <div class="page">
     <header class="site-header">
-      <a class="wordmark" href="./" aria-label="Salman 的作品小站首页"><svg viewBox="0 0 24 24" width="25" height="25" aria-hidden="true"><path d="M2 2h8v8H2zm12 0h8v8h-8zM2 14h8v8H2zm12 0h8v8h-8z" fill="currentColor"/></svg>Salman<span>的作品小站</span></a>
-      <nav aria-label="主导航"><a href="#works">看作品</a><a href="https://github.com/zhongpeng" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <a href="./" class="wordmark" aria-label="Salman 的作品首页">Salman<span class="wordmark-dot" aria-hidden="true"></span></a>
+      <nav aria-label="主导航"><a href="#works">小小世界</a><a href="#more">日常小工具</a><a href="https://github.com/zhongpeng" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
     </header>
     <main>
       <section class="intro" aria-labelledby="welcome">
-        <h1 id="welcome">想玩一局，<br>还是逛一会儿？</h1>
-        <div class="intro-copy"><p>这里放着我做的游戏、三维空间和日常小工具。<br class="desktop-break">选一个喜欢的，直接进去。</p><a href="#works" class="browse">往下看看 <span aria-hidden="true">↓</span></a></div>
+        <div><p class="hello">你好，欢迎来玩。</p><h1 id="welcome">留一点时间，给好奇心。</h1></div>
+        <p class="intro-note">一些可以走进去的风景，<br>一些让日常变有趣的小玩意。</p>
       </section>
-      <section id="works" aria-labelledby="works-title">
-        <div class="section-heading"><h2 id="works-title">随心选一个</h2><p>每个入口，都是一段不同的体验。</p></div>
-        <div class="projects">
-          <a class="project moment" href="./moment-forever/">
-            <div class="cover"><img src="./portal-assets/moment-forever.png" alt="潮汐之间的海岸小岛与探索游戏画面" width="1466" height="801" fetchpriority="high"><span class="category">探索游戏</span></div>
-            <div class="project-body"><div><h3>潮汐之间</h3><p class="alternate">Moment &amp; Forever</p></div><span class="enter" aria-hidden="true">↗</span><p class="description">从童年花园走向海岸与山丘。在回忆里散步，留下此刻想留下的东西。</p><span class="detail">约 8–12 分钟 · 电脑 / 手机</span></div>
-          </a>
-          <a class="project museum" href="./museum/">
-            <div class="cover"><img src="./portal-assets/museum.png" alt="木心美术馆的三维阶梯阅览厅" width="1466" height="801"><span class="category">数字漫游</span></div>
-            <div class="project-body"><div><h3>木心美术馆</h3><p class="alternate">在书墙与水光之间</p></div><span class="enter" aria-hidden="true">↗</span><p class="description">走过水桥，踏上木阶，看看展览和书墙。给自己留一段慢慢走的时间。</p><span class="detail">自由探索 · 以木心美术馆为灵感的数字再创作</span></div>
-          </a>
-          <a class="project street" href="./street/">
-            <div class="cover"><img src="./portal-assets/street.png" alt="第八巷夜色中亮着灯的三维街道" width="1466" height="801" loading="lazy"><span class="category">三维街景</span></div>
-            <div class="project-body"><div><h3>第八巷</h3><p class="alternate">灯火亮着，随意走走</p></div><span class="enter" aria-hidden="true">↗</span><p class="description">沿着夜色里的小街散步，推开茶馆和会客厅的门，看看街角藏着什么。</p><span class="detail">点击行走 · 电脑 / 手机</span></div>
-          </a>
-          <a class="project beat" href="./beat-pocket/">
-            <div class="cover"><img src="./portal-assets/beat-pocket.png" alt="拍点游戏的鼓点轨道与点击按钮" width="1466" height="801" loading="lazy"><span class="category">节奏游戏</span></div>
-            <div class="project-body"><div><h3>拍点</h3><p class="alternate">Beat Pocket</p></div><span class="enter" aria-hidden="true">↗</span><p class="description">圆点落到亮线时，跟着鼓点拍一下。连续命中，看看自己能连上多少拍。</p><span class="detail">约半分钟一局 · 点击 / 触屏 / 空格</span></div>
-          </a>
+      <section class="showcase" id="works" aria-labelledby="works-title">
+        <div class="preview-panel">
+          <div class="preview-top"><span class="preview-label">此刻想去的地方</span><div id="preview-controls" class="preview-controls" hidden><button type="button" id="previous" aria-label="预览上一个作品">←</button><button type="button" id="next" aria-label="预览下一个作品">→</button></div></div>
+          <a href="./moment-forever/" class="preview-art" id="preview-art" aria-label="进入潮汐之间"><img id="preview-image" src="./portal-assets/moment-forever.png" alt="潮汐之间的海岸小岛" width="1466" height="801" fetchpriority="high"><span class="preview-sticker" id="preview-kind">探索游戏</span></a>
+          <div class="preview-caption"><div><h2 id="preview-title">潮汐之间</h2><p id="preview-description">在回忆的小岛上散步，从童年走向海岸与山丘。</p></div><a id="preview-enter" class="enter-button" href="./moment-forever/">进去看看 <span aria-hidden="true">↗</span></a></div>
+        </div>
+        <div class="directory">
+          <div class="directory-heading"><h2 id="works-title">挑一个，出发吧。</h2><span>五个独立的小世界</span></div>
+          <div class="project-list">
+            <a class="project-link" data-preview="moment" data-active="true" href="./moment-forever/"><span class="project-icon coast-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M7 30c5-6 10 5 15-1s8 2 11-2M9 22l10-13 4 8 4-4 7 9M19 9v13"/></svg></span><span class="project-name"><strong>潮汐之间</strong><small>Moment &amp; Forever · 一段回忆之旅</small></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project-link" data-preview="museum" href="./museum/"><span class="project-icon museum-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M7 17h26L20 8 7 17zM10 20v10m7-10v10m6-10v10m7-10v10M7 33h26"/></svg></span><span class="project-name"><strong>木心美术馆</strong><small>走过水桥，在书墙前停一停</small></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project-link" data-preview="street" href="./street/"><span class="project-icon street-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M9 33V18l11-9 11 9v15M6 18h28M16 33V23h8v10M20 5v4"/></svg></span><span class="project-name"><strong>第八巷</strong><small>灯火亮着，随意走走</small></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project-link" data-preview="beat" href="./beat-pocket/"><span class="project-icon beat-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M8 23v-6m6 13V10m6 25V5m6 24V11m6 12v-6"/></svg></span><span class="project-name"><strong>拍点</strong><small>跟着鼓点，来一场指尖练习</small></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project-link" data-preview="heye" href="./heye/"><span class="project-icon heye-icon" aria-hidden="true"><img src="./heye/icon.svg" alt="" width="40" height="40"></span><span class="project-name"><strong>禾页账本 <em>网页体验</em></strong><small>记下收支、安排预算、回顾生活</small></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          </div>
+          <p class="directory-note">点击名字就能进入。<span class="hover-note">移过来，先看一眼风景。</span></p>
         </div>
       </section>
-      <section class="more" aria-labelledby="more-title">
-        <div class="section-heading"><h2 id="more-title">还有两个小作品</h2></div>
-        <div class="small-projects">
-          <a href="./money-compass/" class="small-project"><span class="small-icon finance-icon" aria-hidden="true">¥</span><div><h3>有数</h3><p>记下收支，理一理日常生活。</p></div><span aria-hidden="true">↗</span></a>
-          <a href="./pelican-cycle/" class="small-project"><span class="small-icon pelican-icon" aria-hidden="true">◎</span><div><h3>鹈鹕骑行</h3><p>一只骑着自行车的鹈鹕，转着看看。</p></div><span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
+      <section class="more" id="more" aria-labelledby="more-title"><div><h2 id="more-title">慢慢做，也慢慢积攒。</h2><p>还有一些早些时候的小尝试。</p></div><div class="more-links"><a href="./money-compass/"><span class="more-symbol" aria-hidden="true">¥</span><span>有数<small>旧版财务工具</small></span><span aria-hidden="true">↗</span></a><a href="./pelican-cycle/"><span class="more-symbol pelican" aria-hidden="true">◎</span><span>鹈鹕骑行<small>三维动画小实验</small></span><span aria-hidden="true">↗</span></a></div></section>
     </main>
-    <footer class="site-footer"><span>Salman 的个人作品集</span><span>保持好奇，慢慢做点喜欢的东西。</span><a href="#">回到顶部 ↑</a></footer>
+    <footer class="site-footer"><span>Salman 的个人作品集</span><p>不急着抵达，先玩得开心。</p><a href="#">回到顶部 ↑</a></footer>
   </div>
 </body>
 </html>

@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = file => readFile(resolve(root, file), 'utf8');
-const routes = ['moment-forever', 'museum', 'street', 'beat-pocket', 'money-compass', 'pelican-cycle'];
+const routes = ['moment-forever', 'museum', 'street', 'beat-pocket', 'money-compass', 'pelican-cycle', 'heye'];
 
 test('homepage directly exposes all independent experiences without loading a game engine', async () => {
   const html = await read('index.html');
@@ -15,7 +15,7 @@ test('homepage directly exposes all independent experiences without loading a ga
     assert.ok(html.includes(`href="./${route}/"`), `missing direct entry: ${route}`);
     assert.ok((await stat(resolve(root, route, 'index.html'))).isFile());
   }
-  assert.doesNotMatch(html, /<canvas|<iframe|<script[^>]+src=/i);
+  assert.doesNotMatch(html, /<canvas|<iframe|(?:phaser|three)\.(?:min\.)?js/i);
 });
 
 test('homepage covers and stylesheet exist, and the published beat game uses directory-relative assets', async () => {
@@ -38,4 +38,15 @@ test('rebuilding the street keeps the portal homepage intact and publishes the s
   assert.match(street, /第八巷/);
   assert.match(street, /href="\/"[^>]*>作品首页/);
   assert.match(street, /\/street-assets\/street-v1\.js/);
+});
+
+
+test('Heye preview ships only local assets and clearly separates itself from the mini program', async () => {
+  const html = await read('heye/index.html');
+  assert.match(html, /data-hosting="static"/);
+  assert.match(html, /与微信小程序独立/);
+  for (const [, path] of html.matchAll(/(?:href|src)="(\.\/[^"?#]+)"/g)) {
+    assert.ok((await stat(resolve(root, 'heye', path))).isFile(), `missing Heye resource: ${path}`);
+  }
+  assert.match(await read('heye/assets-ui.js'), /网页体验版未连接行情服务/);
 });
