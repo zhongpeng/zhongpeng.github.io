@@ -12,7 +12,8 @@ const routes = ['moment-forever', 'museum', 'street', 'beat-pocket', 'money-comp
 test('homepage directly exposes all independent experiences without loading a game engine', async () => {
   const html = await read('index.html');
   for (const route of routes) {
-    assert.ok(html.includes(`href="./${route}/"`), `missing direct entry: ${route}`);
+    const href = route === 'heye' ? './heye/cloud.html' : `./${route}/`;
+    assert.ok(html.includes(`href="${href}"`), `missing direct entry: ${route}`);
     assert.ok((await stat(resolve(root, route, 'index.html'))).isFile());
   }
   assert.doesNotMatch(html, /<canvas|<iframe|(?:phaser|three)\.(?:min\.)?js/i);

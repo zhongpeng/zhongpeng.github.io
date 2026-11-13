@@ -10,7 +10,7 @@ GitHub Pages：<https://zhongpeng.github.io/>
 | 木心美术馆 | `museum/` | 当前独立版本保留于 `museum/index.html` |
 | 第八巷 | `street/` | `_app-source/midnight-street/` |
 | 拍点 / Beat Pocket | `beat-pocket/` | `_app-source/beat-pocket/` |
-| 禾页账本（网页体验） | `heye/` | `_app-source/heye-web/` |
+| 禾页云账本（本机版另保留） | `heye/cloud.html` | `_app-source/heye-web/` |
 | 有数 | `money-compass/` | `_app-source/money-compass/` |
 | 鹈鹕骑行 | `pelican-cycle/` | `_app-source/pelican-cycle/` |
 
@@ -29,7 +29,7 @@ python3 -m http.server 5190 --bind 127.0.0.1
 - 首页：`index.html` 与 `portal-assets/home.css`、`portal-assets/home.js`，无需构建。
 - 第八巷：进入 `_app-source/midnight-street/`，运行 `npm ci && npm test && npm run build`。构建仅生成 `street/index.html` 与 `street-assets/`，不会覆盖作品首页。
 - 拍点：进入 `_app-source/beat-pocket/`，运行 `npm ci && npm test && npm run build`。构建生成 `beat-pocket/`，资源路径相对于该目录，适用于 GitHub Pages。
-- 禾页：进入 `_app-source/heye-web/`，运行 `npm test && npm run build`。基于独立网页原型，不含个人账目、不与小程序同步，静态版未接入行情服务。
+- 禾页：进入 `_app-source/heye-web/`，运行 `npm test && npm run build`。默认进入微信云账本连接页，使用小程序生成的签名连接码访问本人云端数据；原本机网页版仍在 `heye/`，数据不自动合并。仓库不含个人账目或后台密钥；行情功能仍以各模式内说明为准。
 - 入口回归检查：在根目录运行 `node --test scripts/routes.test.mjs`。
 
 第八巷从旧的根入口迁移到 `/street/`。木心美术馆和拍点的首页链接返回作品目录；原项目路径继续保留。`portal-assets/*.png` 是各项目在本地浏览器中的实景封面。
