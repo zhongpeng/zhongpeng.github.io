@@ -4,6 +4,7 @@
     museum: { title: '木心美术馆', kind: '数字漫游', image: './portal-assets/museum.png', alt: '木心美术馆的三维阶梯阅览厅', description: '循着水光走进展厅，在书墙与钢琴之间停留。' },
     street: { title: '第八巷', kind: '三维街景', image: './portal-assets/street.png', alt: '亮着暖色灯火的第八巷', description: '走进夜色中的小街，推开一扇门，慢慢逛一会儿。' },
     beat: { title: '拍点', kind: '节奏游戏', image: './portal-assets/beat-pocket.png', alt: '拍点音乐节奏游戏', description: '跟着鼓点拍一下。连上每一拍，也给自己加点分。' },
+    outbreak: { title: '零号蔓延', kind: '策略模拟', image: './portal-assets/outbreak-zero.svg', alt: '零号蔓延的世界传播地图', description: '从一个地区开始，积累进化点，在全球应对中寻找突破。' },
     heye: { title: '禾页账本', kind: '云账本', image: './portal-assets/heye-cloud.png', alt: '禾页云账本的连接引导页', description: '在电脑继续小程序里的账本。授权后，查看和整理收支与持仓。' }
   };
   const rows = [...document.querySelectorAll('[data-preview]')];

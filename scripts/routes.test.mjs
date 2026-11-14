@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = file => readFile(resolve(root, file), 'utf8');
-const routes = ['moment-forever', 'museum', 'street', 'beat-pocket', 'money-compass', 'pelican-cycle', 'heye'];
+const routes = ['moment-forever', 'museum', 'street', 'beat-pocket', 'money-compass', 'pelican-cycle', 'heye', 'outbreak-zero'];
 
 test('homepage directly exposes all independent experiences without loading a game engine', async () => {
   const html = await read('index.html');
